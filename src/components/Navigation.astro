@@ -1,0 +1,35 @@
+---
+const navLinks = [
+    { url: "/", label: "Home" },
+    { url: "/blog", label: "Blog" },
+];
+---
+
+<ul class="nav-links">
+    {
+        navLinks.map((link) => {
+            return (
+                <li>
+                    <a href={link.url}>{link.label}</a>
+                </li>
+            );
+        })
+    }
+</ul>
+
+<style>
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        & a {
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        & li {
+            list-style-type: none;
+        }
+    }
+</style>

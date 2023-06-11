@@ -1,0 +1,14 @@
+html {
+  background-color: lightgoldenrodyellow;
+  font-family: cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-inline-start: 1rem;
+}
