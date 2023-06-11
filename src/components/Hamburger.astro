@@ -1,0 +1,64 @@
+<div class="hamburger">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+</div>
+
+<style>
+    /* hamburger styles  */
+    .hamburger {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        padding: 0.5rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 999;
+
+        .line {
+            height: 5px;
+            width: 70%;
+            background-color: coral;
+            transition: all 0.5s ease;
+            position: absolute;
+            border-radius: 1rem;
+
+            &:nth-child(1) {
+                top: 25%;
+                transform-origin: center;
+            }
+            &:nth-child(2) {
+                top: 50%;
+                transform-origin: center;
+            }
+            &:nth-child(3) {
+                top: 75%;
+                transform-origin: center;
+            }
+        }
+    }
+
+    .vanish {
+        transform: rotate(360deg) scale(0);
+    }
+
+    .rotate:first-child {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .rotate:last-child {
+        transform: rotate(-45deg) translate(8px, -10px);
+    }
+
+    @media screen and (max-width: 678px) {
+        .hamburger {
+            display: flex;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+    }
+</style>

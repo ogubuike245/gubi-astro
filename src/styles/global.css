@@ -1,5 +1,4 @@
 html {
-  background-color: lightgoldenrodyellow;
   font-family: cursive;
 }
 
@@ -7,8 +6,10 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: whitesmoke;
 }
 
 body {
   padding-inline-start: 1rem;
+  background-color: rgb(8, 8, 4);
 }
