@@ -1,0 +1,23 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="heading">
+    <h3>{title}</h3>
+</div>
+
+<style>
+    .heading {
+        width: 70%;
+        height: 20px;
+        padding-inline: 0.8rem;
+        padding-block: 1rem;
+        background-color: var(--accent);
+        display: flex;
+        align-items: center;
+
+        & h3 {
+            white-space: nowrap;
+        }
+    }
+</style>

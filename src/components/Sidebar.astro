@@ -1,0 +1,43 @@
+---
+import Heading from "./Heading.astro";
+const postCategories = await Astro.glob("../pages/sidebar/*.md");
+---
+
+{
+    postCategories.map((post) => (
+        <div class="components">
+            <Heading title={post.frontmatter.title} />
+
+            {post.frontmatter.contents.map((post) => (
+                <div class="component">
+                    <a href={post.url}>
+                        <p>{post.title}</p>
+                    </a>
+                </div>
+            ))}
+        </div>
+    ))
+}
+
+<style>
+    .component {
+        padding: 0.5rem;
+        background-color: rgb(237, 239, 243);
+        height: 100%;
+        transform: scale(1);
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+
+    .component p {
+        color: var(--dark);
+        font-size: 16px;
+    }
+
+    .component a {
+        text-decoration: none;
+    }
+    .component:hover {
+        transform: scale(0.99);
+    }
+</style>

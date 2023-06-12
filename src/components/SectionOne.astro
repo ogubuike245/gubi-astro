@@ -1,0 +1,49 @@
+---
+import Heading from "./Heading.astro";
+
+const featuredPosts = await Astro.glob("../pages/featured/*.md");
+---
+
+<section class="section-one">
+    <Heading title="Featured" />
+    {
+        featuredPosts.map((post) => {
+            return (
+                <article>
+                    <a href={post.frontmatter.url}>
+                        <p>{post.frontmatter.title}</p>
+                    </a>
+                </article>
+            );
+        })
+    }
+</section>
+
+<style>
+    .section-one {
+        margin-block: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+
+        & article {
+            height: 150px;
+            background-color: var(--secondary);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-inline: 1rem;
+        }
+    }
+
+    /* media queries  */
+    @media screen and (min-width: 768px) {
+        .section-one {
+            margin-block-start: 2rem;
+            padding-block-start: 1rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+    }
+</style>

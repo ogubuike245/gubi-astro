@@ -1,0 +1,47 @@
+---
+const { image } = Astro.props;
+---
+
+<article class="hero-container">
+    <img src={image} alt="image one" />
+    <div>
+        <h1>Welcome to GUBI</h1>
+        <p>Your Ultimate Source for Lifestyle and Sports News</p>
+    </div>
+</article>
+
+<style>
+    article {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--dark);
+        box-shadow: 1px 1px 10px rgba(34, 34, 34, 0.2);
+        border-radius: 1rem;
+        & img {
+            transform: rotate(180deg);
+            z-index: 1;
+        }
+
+        & div {
+            height: 40%;
+            background-color: var(--primary);
+
+            & h1 {
+                color: var(--dark);
+                font-size: 3rem;
+                font-weight: 900;
+            }
+            & p {
+                color: var(--dark);
+                font-size: 1rem;
+            }
+        }
+    }
+
+    /* media queries  */
+    @media screen and (min-width: 768px) {
+        article {
+            height: 80vh;
+        }
+    }
+</style>
