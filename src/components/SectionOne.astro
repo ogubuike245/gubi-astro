@@ -21,25 +21,26 @@ const featuredPosts = await Astro.glob("../pages/featured/*.md");
 
 <style>
     .section-one {
-        margin-block: 2rem;
+        /* margin-block: 2rem; */
         display: grid;
         grid-template-columns: 1fr;
         gap: 0.5rem;
-
-        & article {
-            height: 150px;
-            background-color: var(--secondary);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding-inline: 1rem;
-        }
+        padding: 0.5rem;
+        border-inline-start: 2px dotted var(--dark);
+    }
+    .section-one article {
+        height: 150px;
+        background-color: var(--secondary);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-inline: 1rem;
     }
 
     /* media queries  */
     @media screen and (min-width: 768px) {
         .section-one {
-            margin-block-start: 2rem;
+            /* margin-block-start: 2rem; */
             padding-block-start: 1rem;
             display: grid;
             grid-template-columns: repeat(3, 1fr);

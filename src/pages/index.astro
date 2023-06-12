@@ -17,14 +17,7 @@ const pageTitle = "Home Page";
             </aside>
         </section>
 
-        <SectionOne
-            firstTitle="Fifa"
-            firstContent="Fifa World Cup Analysis"
-            secondTitle="Sports"
-            secondContent="Highest Paid Soccer Players "
-            thirdTitle="Gaming"
-            thirdContent="Upcoming Game Releases"
-        />
+        <SectionOne />
 
         <Heading title="Catgories" />
     </main>
@@ -34,19 +27,16 @@ const pageTitle = "Home Page";
     .landing {
         display: grid;
         gap: 2rem;
-        margin-bottom: 2rem;
-        height: 100%;
+        /* margin-bottom: 2rem; */
+        padding: 0.5rem;
+        border-inline-end: 2px dotted var(--dark);
+        border-block-end: 2px dotted var(--dark);
     }
 
     aside {
         display: grid;
         grid-template-rows: 1fr 1fr;
         gap: 1rem;
-
-        .components {
-            display: grid;
-            gap: 0.5rem;
-        }
     }
 
     /* media queries */

@@ -15,27 +15,26 @@ const { image } = Astro.props;
         display: flex;
         flex-direction: column;
         background-color: var(--dark);
-        box-shadow: 1px 1px 10px rgba(34, 34, 34, 0.2);
+        box-shadow: 4px 3px 5px rgba(34, 34, 34, 0.2);
         border-radius: 1rem;
-        & img {
-            transform: rotate(180deg);
-            z-index: 1;
-        }
+    }
+    img {
+        transform: rotate(180deg);
+        z-index: 1;
+    }
 
-        & div {
-            height: 40%;
-            background-color: var(--primary);
-
-            & h1 {
-                color: var(--dark);
-                font-size: 3rem;
-                font-weight: 900;
-            }
-            & p {
-                color: var(--dark);
-                font-size: 1rem;
-            }
-        }
+    div {
+        height: 40%;
+        background-color: var(--primary);
+    }
+    h1 {
+        color: var(--dark);
+        font-size: 3rem;
+        font-weight: 900;
+    }
+    p {
+        color: var(--dark);
+        font-size: 1rem;
     }
 
     /* media queries  */
