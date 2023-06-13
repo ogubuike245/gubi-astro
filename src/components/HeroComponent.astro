@@ -16,7 +16,6 @@ const { image } = Astro.props;
         flex-direction: column;
         background-color: var(--dark);
         box-shadow: 4px 3px 5px rgba(34, 34, 34, 0.2);
-        border-radius: 1rem;
     }
     img {
         transform: rotate(180deg);
@@ -26,10 +25,14 @@ const { image } = Astro.props;
     div {
         height: 40%;
         background-color: var(--primary);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     h1 {
         color: var(--dark);
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 900;
     }
     p {

@@ -12,9 +12,8 @@ const pageTitle = "Home Page";
     <main>
         <section class="landing">
             <HeroComponent image={heroImage} />
-            <aside>
-                <Sidebar />
-            </aside>
+
+            <Sidebar />
         </section>
 
         <SectionOne />
@@ -27,16 +26,9 @@ const pageTitle = "Home Page";
     .landing {
         display: grid;
         gap: 2rem;
-        /* margin-bottom: 2rem; */
         padding: 0.5rem;
-        border-inline-end: 2px dotted var(--dark);
-        border-block-end: 2px dotted var(--dark);
-    }
-
-    aside {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        gap: 1rem;
+        border-inline-end: 1px dashed var(--accent);
+        border-block-end: 1px dashed var(--accent);
     }
 
     /* media queries */

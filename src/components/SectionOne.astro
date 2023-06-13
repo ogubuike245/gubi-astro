@@ -6,33 +6,43 @@ const featuredPosts = await Astro.glob("../pages/featured/*.md");
 
 <section class="section-one">
     <Heading title="Featured" />
-    {
-        featuredPosts.map((post) => {
-            return (
-                <article>
-                    <a href={post.frontmatter.url}>
-                        <p>{post.frontmatter.title}</p>
-                    </a>
-                </article>
-            );
-        })
-    }
+
+    <div class="components">
+        {
+            featuredPosts.map((post) => {
+                return (
+                    <article>
+                        <a href={post.frontmatter.url}>
+                            <p>{post.frontmatter.title}</p>
+                        </a>
+                    </article>
+                );
+            })
+        }
+    </div>
 </section>
 
 <style>
     .section-one {
-        /* margin-block: 2rem; */
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 0.5rem;
         padding: 0.5rem;
-        border-inline-start: 2px dotted var(--dark);
+        margin-bottom: 1rem;
+        border-inline-start: 1px dashed var(--accent);
+        border-block-end: 1px dashed var(--accent);
     }
-    .section-one article {
+
+    .section-one .components {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+    .section-one .components article {
         height: 150px;
         background-color: var(--secondary);
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         padding-inline: 1rem;
     }
@@ -40,8 +50,13 @@ const featuredPosts = await Astro.glob("../pages/featured/*.md");
     /* media queries  */
     @media screen and (min-width: 768px) {
         .section-one {
-            /* margin-block-start: 2rem; */
             padding-block-start: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .section-one .components {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 0.5rem;

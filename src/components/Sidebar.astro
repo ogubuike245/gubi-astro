@@ -3,27 +3,46 @@ import Heading from "./Heading.astro";
 const postCategories = await Astro.glob("../pages/sidebar/*.md");
 ---
 
-{
-    postCategories.map((post) => (
-        <div class="components">
-            <Heading title={post.frontmatter.title} />
-
-            {post.frontmatter.contents.map((post) => (
-                <div class="component">
-                    <a href={post.url}>
-                        <p>{post.title}</p>
-                    </a>
+<aside>
+    {
+        postCategories.map((post) => (
+            <div class="components">
+                <div class="heading-container">
+                    <Heading title={post.frontmatter.title} />
                 </div>
-            ))}
-        </div>
-    ))
-}
+
+                {post.frontmatter.contents.map((post) => (
+                    <ul class="component">
+                        <a href={post.url}>
+                            <li>{post.title}</li>
+                        </a>
+                    </ul>
+                ))}
+            </div>
+        ))
+    }
+</aside>
 
 <style>
-    .components {
+    aside {
         display: grid;
-        gap: 0.5rem;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
     }
+    .components {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .heading-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     .component {
         padding: 0.5rem;
         background-color: rgb(237, 239, 243);
@@ -31,12 +50,14 @@ const postCategories = await Astro.glob("../pages/sidebar/*.md");
         transform: scale(1);
         transition: all 0.5s ease;
         cursor: pointer;
+        width: 100%;
         box-shadow: 1px 1px 2px rgba(34, 34, 34, 0.2);
     }
 
-    .component p {
+    .component li {
         color: var(--dark);
         font-size: 16px;
+        list-style-type: none;
     }
 
     .component a {
