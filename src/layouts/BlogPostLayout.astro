@@ -1,0 +1,53 @@
+---
+import { Image } from "@astrojs/image/components";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, category, image } = frontmatter;
+
+const remoteImage = "https://picsum.photos/id/957/300/200.jpg";
+const remoteAlt = "The Astro Logo";
+---
+
+<BaseLayout pageTitle={title}>
+    <div class="container">
+        {
+            category.map((category) => {
+                return <a href={`/categorys/${category}`}>{category}</a>;
+            })
+        }
+    </div>
+
+    <!-- height will be recalculated to match the original aspect ratio-->
+    <Image
+        src={image.url}
+        height={200}
+        aspectRatio="16:9"
+        format="avif"
+        alt={image.alt}
+    />
+
+    <div class="post-content">
+        <div class="content">
+            <slot />
+        </div>
+
+        <div class="sidebar"></div>
+    </div>
+</BaseLayout>
+
+<style>
+    .container {
+        padding: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    a {
+        background-color: var(--accent);
+        color: var(--light);
+        padding: 0.5rem;
+        text-decoration: none;
+        border-radius: 0.2rem;
+    }
+</style>

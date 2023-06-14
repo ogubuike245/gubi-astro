@@ -1,22 +1,30 @@
 ---
 import Heading from "./Heading.astro";
-const postCategories = await Astro.glob("../pages/sidebar/*.md");
+const allBlogPosts = await Astro.glob("../pages/blog/posts/*.md");
+
+const tags = {
+    Popular: allBlogPosts.filter((post) =>
+        post.frontmatter.tags?.includes("popular")
+    ),
+    "Editor Picks": allBlogPosts.filter((post) =>
+        post.frontmatter.tags?.includes("editor")
+    ),
+};
 ---
 
 <aside>
     {
-        postCategories.map((post) => (
+        Object.entries(tags).map(([tag, posts]) => (
             <div class="components">
                 <div class="heading-container">
-                    <Heading title={post.frontmatter.title} />
+                    <Heading title={tag} />
                 </div>
-
-                {post.frontmatter.contents.map((post) => (
-                    <ul class="component">
-                        <a href={post.url}>
-                            <li>{post.title}</li>
-                        </a>
-                    </ul>
+                {posts.map((post) => (
+                    <a href={post.url}>
+                        <ul class="component">
+                            <li>{post.frontmatter.title}</li>
+                        </ul>
+                    </a>
                 ))}
             </div>
         ))
@@ -60,8 +68,10 @@ const postCategories = await Astro.glob("../pages/sidebar/*.md");
         list-style-type: none;
     }
 
-    .component a {
+    a {
         text-decoration: none;
+        width: 100%;
+        height: 100%;
     }
     .component:hover {
         transform: scale(0.99);

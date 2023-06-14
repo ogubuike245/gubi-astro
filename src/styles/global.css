@@ -30,3 +30,8 @@ img {
   height: 60%;
   object-fit: cover;
 }
+
+a {
+  font-family: monospace;
+  text-decoration: none;
+}

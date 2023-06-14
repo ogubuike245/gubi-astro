@@ -1,7 +1,12 @@
 ---
 import Heading from "./Heading.astro";
+const allBlogPosts = await Astro.glob("../pages/blog/posts/*.md");
 
-const featuredPosts = await Astro.glob("../pages/featured/*.md");
+const featuredPosts = allBlogPosts.filter((post) => {
+    return post.frontmatter.tags?.includes("featured");
+});
+
+console.log(featuredPosts);
 ---
 
 <section class="section-one">
@@ -12,7 +17,7 @@ const featuredPosts = await Astro.glob("../pages/featured/*.md");
             featuredPosts.map((post) => {
                 return (
                     <article>
-                        <a href={post.frontmatter.url}>
+                        <a href={post.url}>
                             <p>{post.frontmatter.title}</p>
                         </a>
                     </article>
@@ -35,7 +40,6 @@ const featuredPosts = await Astro.glob("../pages/featured/*.md");
 
     .section-one .components {
         display: grid;
-        grid-template-rows: repeat(3, 1fr);
         gap: 0.5rem;
     }
     .section-one .components article {
@@ -45,6 +49,16 @@ const featuredPosts = await Astro.glob("../pages/featured/*.md");
         justify-content: center;
         align-items: center;
         padding-inline: 1rem;
+    }
+
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     /* media queries  */

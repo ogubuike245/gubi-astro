@@ -18,7 +18,7 @@ const pageTitle = "Home Page";
 
         <SectionOne />
 
-        <Heading title="Catgories" />
+        <Heading title="Categories" />
     </main>
 </BaseLayout>
 
@@ -29,6 +29,18 @@ const pageTitle = "Home Page";
         padding: 0.5rem;
         border-inline-end: 1px dashed var(--accent);
         border-block-end: 1px dashed var(--accent);
+        position: relative;
+    }
+
+    .landing::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -5px;
+        transform: rotate(90deg);
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid #000;
     }
 
     /* media queries */
@@ -37,6 +49,10 @@ const pageTitle = "Home Page";
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 0.5rem;
+        }
+
+        .landing::after {
+            top: 50%;
         }
     }
 </style>

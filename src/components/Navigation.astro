@@ -1,11 +1,8 @@
 ---
-const navLinks = [
-    { url: "/", label: "Home" },
-    { url: "/blog", label: "Blog" },
-];
+import { navLinks } from "../data/NavList";
 ---
 
-<ul class="nav-links">
+<ul>
     {
         navLinks.map((link) => {
             return (

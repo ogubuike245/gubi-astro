@@ -2,11 +2,41 @@
 import Social from "./Social.astro";
 const github = "ogubuike245";
 const twitter = "spinkq";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-    <Social platform="twitter" username={twitter} />
-    <Social platform="github" username={github} />
+    <div class="socials">
+        <Social platform="twitter" username={twitter} />
+        <Social platform="github" username={github} />
+    </div>
+
+    <div>
+        <p>
+            &copy; {currentYear} - Gubi
+        </p>
+    </div>
 </footer>
 
-<style></style>
+<style>
+    footer {
+        background-color: var(--dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 150px;
+        gap: 2rem;
+    }
+
+    p {
+        color: var(--light);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 1px groove var(--accent);
+        border-width: 10px;
+        padding: 1rem;
+        text-decoration: none;
+    }
+</style>
